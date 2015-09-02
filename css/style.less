@@ -1,0 +1,386 @@
+@borders: #fff;
+@primary: lighten(#989072, 5%);
+@bg: #181E20;
+
+@font-face {
+  font-family: 'BrandonGrotesque';
+  src: url('../fonts/brandongrotesque-light.eot');
+  src: url('../fonts/brandongrotesque-light.eot?#iefix') format('embedded-opentype'), url('../fonts/brandongrotesque-light.woff') format('woff'), url('../fonts/brandongrotesque-light.ttf') format('truetype'), url('../fonts/brandongrotesque-light.svg#BrandonGrotesque') format('svg');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'BrandonGrotesque';
+  src: url('../fonts/brandongrotesque-regular-webfont.eot');
+  src: url('../fonts/brandongrotesque-regular-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/brandongrotesque-regular-webfont.woff') format('woff'), url('../fonts/brandongrotesque-regular-webfont.ttf') format('truetype'), url('../fonts/brandongrotesque-regular-webfont.svg#BrandonGrotesque') format('svg');
+  font-weight: 400;
+  font-style: normal;
+}
+
+html, body, #wrapper{
+  height: 100%;
+}
+
+body{
+  font-family: 'BrandonGrotesque';
+  font-weight: 300;
+}
+
+a{
+  color: @primary;
+  &:hover, &:focus{
+    color: darken(@primary, 10%);
+  }
+}
+
+#home{
+  background-color: @bg;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  border: 25px solid #fff;
+  .centrize{
+    position: relative;
+    z-index: 10;
+  }
+}
+
+#main-canvas, #second-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.centrize{
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+
+.v-center{
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.welcome-box{
+  max-width: 800px;
+  color: @borders;
+  text-align: center;
+  margin: auto;
+  font-size: 26px;
+  @media (max-width: 767px) {
+    max-width: 100%;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  p{
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 4px;
+    font-weight: 400;
+  }
+}
+
+.full-name{
+  margin: 20px 0;
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  opacity: 0;
+  animation: animName .6s both;
+  animation-delay: .6s;
+  h2{
+    font-size: 55px;
+    font-variant: small-caps;
+    margin: 0;
+    font-weight: 300;
+    letter-spacing: 9px;
+    display: inline-block;
+    padding: 15px 30px;
+    color: @primary;
+    @media (max-width: 767px) {
+      font-size: 44px;
+    }
+  }
+}
+
+.text-to-animate{
+  span{
+    opacity: 0;
+    animation: animLetters .1s both;
+  }
+}
+
+@letters: 15;
+.letters-loop (@i) when (@i > 0) {
+    .text-to-animate .letter-@{i} {
+      @foo: (1.3 + @i * 0.1);
+      animation-delay: ~"@{foo}s";
+    }
+    .letters-loop(@i - 1);
+}
+.letters-loop (@letters);
+
+.line-top {
+  height: 2px;
+  background-color: @borders;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  animation: lineTop 4s infinite;
+}
+
+.line-right {
+  width: 2px;
+  background-color: @borders;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  animation: lineRight 4s infinite;
+}
+
+.line-bottom {
+  height: 2px;
+  background-color: @borders;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  animation: lineBottom 4s infinite;
+}
+
+.line-left {
+  width: 2px;
+  background-color: @borders;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  animation: lineLeft 4s infinite;
+}
+
+.serif{
+  font-family: 'EB Garamond', serif;
+}
+
+#intro span{
+  animation: fadeIntro .6s forwards;
+  opacity: 0;
+  display: block;
+}
+
+#desc span{
+  animation: fadeIntro .6s forwards;
+  opacity: 0;
+  display: inline-block;
+  margin: 0 5px;
+  &.first{
+    animation-delay: 3.1s;
+  }
+  &.second{
+    animation-delay: 3.7s;
+  }
+}
+
+#socials{
+  margin-top: 20px;
+  >li{
+    display: inline-block;
+    margin-right: 12px;
+    opacity: 0;
+    animation: animSocial .4s both;
+    >a{
+      color: #fff;
+      padding: 0;
+      height: 39px;
+      width: 39px;
+      line-height: 35px;
+      text-align: center;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      font-size: 18px;
+      transition: color .5s ease, background-color .5s ease;
+      @media (max-width: 767px) {
+        width: 32px;
+        height: 32px;
+        line-height: 28px;
+        font-size: 14px;
+      }
+      &:hover{
+        color: @bg;
+        background-color: #fff;
+      }
+    }
+  }
+}
+
+@socialLinks: 7;
+.social-loop (@i) when (@i > 0) {
+    #socials #social-link-@{i} {
+      @d: (4 + @i * 0.3);
+      animation-delay: ~"@{d}s";
+    }
+    .social-loop(@i - 1);
+}
+.social-loop (@socialLinks);
+
+.icon-about-me{
+  &:before{
+    content: 'me';
+    font-family: 'BrandonGrotesque';
+    width: auto;
+  }
+}
+
+#about, #skills{
+  height: 100%;
+  background-color: #f2f2f2;
+  border: 25px solid #fff;
+  position: relative;
+  h1{
+    font-size: 29px;
+    font-variant: small-caps;
+    position: relative;
+    &:after{
+      content: "";
+      width: 30px;
+      background-color: #333;
+      height: 3px;
+      margin: 20px 0;
+      display: block;
+    }
+  }
+  p{
+    color: #8C8E8E;
+    font-size: 18px;
+  }
+  .btn {
+    border-color: @primary;
+    color: #fff;
+    margin: 15px 15px 0 0;
+    color: @primary;
+    font-size: 16px;
+    font-variant: small-caps;
+    transition: all .3s ease;
+    &:hover{
+      background-color: @primary;
+      color: #fff;
+    }
+  }
+}
+
+.about-box{
+  margin: auto;
+  max-width: 600px;
+  text-align: center;
+}
+
+.about-icon{
+  text-align: center;
+  svg{
+    fill: #ddd;
+    max-width: 400px;
+  }
+}
+
+@keyframes animSocial{
+  0%{
+    opacity: 0;
+    transform: rotate(360deg) scale(1.7);
+  }
+  100%{
+    opacity: 1;
+    transform: rotate(0) scale(1);
+  }
+}
+
+@keyframes animName{
+  0% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes animLetters{
+  0% {
+    opacity: 0;
+    transform: scale(1.6);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeIntro {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes lineTop {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes lineBottom {
+  0% {
+    transform: translateX(100%);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes lineLeft {
+  0% {
+    transform: translateY(100%);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes lineRight {
+  0% {
+    transform: translateY(-100%);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
