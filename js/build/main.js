@@ -7,7 +7,7 @@ var App = React.createClass({
     return React.createElement(
       "div",
       { id: "wrapper" },
-      React.createElement(HomeSection, { name: "Carmelo Pullara" }),
+      React.createElement(HomeSection, null),
       React.createElement(AboutSection, null)
     );
   }
@@ -40,7 +40,7 @@ var HomeSection = React.createClass({
     return React.createElement(
       "section",
       { id: "home" },
-      React.createElement(HomeContent, { name: this.props.name, intro: "Hi, my name is:" })
+      React.createElement(HomeContent, null)
     );
   }
 });
@@ -48,11 +48,16 @@ var HomeSection = React.createClass({
 var HomeContent = React.createClass({
   displayName: "HomeContent",
 
+  getInitialState: function getInitialState() {
+    return {
+      name: "Carmelo Pullara"
+    };
+  },
   render: function render() {
     var letters = [];
-    for (var i = 0; i < this.props.name.length; i++) {
-      var foo = { id: i, letter: this.props.name[i] };
-      letters.push(foo);
+    for (var i = 0; i < this.state.name.length; i++) {
+      var toAdd = { id: i, letter: this.state.name[i] };
+      letters.push(toAdd);
     };
     return React.createElement(
       Centrize,
@@ -66,7 +71,7 @@ var HomeContent = React.createClass({
           React.createElement(
             "span",
             null,
-            this.props.intro
+            "Hi, my name is:"
           )
         ),
         React.createElement(

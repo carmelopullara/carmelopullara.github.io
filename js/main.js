@@ -2,7 +2,7 @@ var App = React.createClass({
   render: function(){
     return(
       <div id="wrapper">
-        <HomeSection name="Carmelo Pullara" />
+        <HomeSection />
         <AboutSection />
       </div>
     );
@@ -28,24 +28,29 @@ var HomeSection = React.createClass({
   render: function(){
     return(
       <section id="home">
-        <HomeContent name={this.props.name} intro="Hi, my name is:" />
+        <HomeContent />
       </section>
     );
   }
 });
 
 var HomeContent = React.createClass({
+  getInitialState: function() {
+    return {
+      name: "Carmelo Pullara"
+    };
+  },
   render: function(){
     var letters = [];
-    for (var i = 0; i < this.props.name.length; i++) {
-      var foo = {id: i, letter: this.props.name[i]};
-      letters.push(foo);
+    for (var i = 0; i < this.state.name.length; i++) {
+      var toAdd = {id: i, letter: this.state.name[i]};
+      letters.push(toAdd);
     };
     return(
       <Centrize>
         <div className="welcome-box">
           <p id="intro">
-            <span>{this.props.intro}</span>
+            <span>Hi, my name is:</span>
           </p>
           <div className="full-name">
             <Borders />
