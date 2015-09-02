@@ -29,6 +29,7 @@ var HomeSection = React.createClass({
     return(
       <section id="home">
         <HomeContent />
+        <div id="main-canvas" />
       </section>
     );
   }
@@ -176,3 +177,7 @@ var ReactIcon = React.createClass({
 });
 
 React.render(<App />, document.body);
+
+var particleJS = document.getElementById('main-canvas');
+
+particlesJS.load('main-canvas', 'public/particles.json');
