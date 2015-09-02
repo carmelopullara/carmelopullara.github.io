@@ -239,11 +239,17 @@ a{
   }
 }
 
-#about, #skills{
-  height: 100%;
+#about{
+  min-height: 100%;
   background-color: #f2f2f2;
   border: 25px solid #fff;
   position: relative;
+  @media (min-height: 600px) {
+    height: 100%;
+  }
+  @media (max-height: 599px) {
+    padding: 100px 0;
+  }
   h1{
     font-size: 29px;
     font-variant: small-caps;

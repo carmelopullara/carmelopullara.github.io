@@ -10,6 +10,7 @@ var gulp = require('gulp'),
 gulp.task('less', function() {
   return gulp.src('css/style.less')
     .pipe(less())
+    .pipe(minifyCss({compatibility: 'ie8'}))
     .pipe(gulp.dest('css/'))
 });
 
@@ -25,9 +26,8 @@ gulp.task('autoprefixer', function () {
     .pipe(gulp.dest('css/'));
 });
 
-gulp.task('minify-css', function() {
-  return gulp.src('css/style.css')
-    .pipe(minifyCss({compatibility: 'ie8'}))
+gulp.task('concat', function() {
+  return gulp.src(['css/bootstrap.css', 'css/fontello.css', 'css/style.css'])
     .pipe(concat('all.min.css'))
     .pipe(gulp.dest('css/'));
 });
@@ -35,7 +35,7 @@ gulp.task('minify-css', function() {
 gulp.task('watch', function() {
   gulp.watch('css/*.less', ['less']);
   gulp.watch('js/main.js', ['babel']);
-  gulp.watch('css/*.css', ['autoprefixer', 'minify-css']);
+  gulp.watch('css/*.css', ['autoprefixer', 'concat']);
 });
 
 
