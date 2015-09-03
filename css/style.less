@@ -4,16 +4,16 @@
 
 @font-face {
   font-family: 'BrandonGrotesque';
-  src: url('../fonts/brandongrotesque-light.eot');
-  src: url('../fonts/brandongrotesque-light.eot?#iefix') format('embedded-opentype'), url('../fonts/brandongrotesque-light.woff') format('woff'), url('../fonts/brandongrotesque-light.ttf') format('truetype'), url('../fonts/brandongrotesque-light.svg#BrandonGrotesque') format('svg');
+  src: url('../font/brandongrotesque-light.eot');
+  src: url('../font/brandongrotesque-light.eot?#iefix') format('embedded-opentype'), url('../font/brandongrotesque-light.woff') format('woff'), url('../font/brandongrotesque-light.ttf') format('truetype'), url('../font/brandongrotesque-light.svg#BrandonGrotesque') format('svg');
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'BrandonGrotesque';
-  src: url('../fonts/brandongrotesque-regular-webfont.eot');
-  src: url('../fonts/brandongrotesque-regular-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/brandongrotesque-regular-webfont.woff') format('woff'), url('../fonts/brandongrotesque-regular-webfont.ttf') format('truetype'), url('../fonts/brandongrotesque-regular-webfont.svg#BrandonGrotesque') format('svg');
+  src: url('../font/brandongrotesque-regular-webfont.eot');
+  src: url('../font/brandongrotesque-regular-webfont.eot?#iefix') format('embedded-opentype'), url('../font/brandongrotesque-regular-webfont.woff') format('woff'), url('../font/brandongrotesque-regular-webfont.ttf') format('truetype'), url('../font/brandongrotesque-regular-webfont.svg#BrandonGrotesque') format('svg');
   font-weight: 400;
   font-style: normal;
 }
@@ -72,12 +72,12 @@ a{
   text-align: center;
   margin: auto;
   font-size: 26px;
-  @media (max-width: 767px) {
+  @media screen and (max-width: 767px) {
     max-width: 100%;
     padding-left: 30px;
     padding-right: 30px;
   }
-  @media (max-width: 600px) {
+  @media screen and (max-width: 600px) {
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -107,10 +107,10 @@ a{
     display: inline-block;
     padding: 15px 30px;
     color: @primary;
-    @media (max-width: 767px) {
+    @media screen and (max-width: 767px) {
       font-size: 44px;
     }
-    @media (max-width: 600px) {
+    @media screen and (max-width: 600px) {
       font-size: 32px;
     }
   }
@@ -214,7 +214,7 @@ a{
       border: 2px solid #fff;
       font-size: 18px;
       transition: color .5s ease, background-color .5s ease;
-      @media (max-width: 767px) {
+      @media screen and (max-width: 767px) {
         width: 32px;
         height: 32px;
         line-height: 28px;
@@ -251,10 +251,10 @@ a{
   background-color: #f2f2f2;
   border: 25px solid #fff;
   position: relative;
-  @media (min-height: 600px) {
+  @media screen and (min-height: 600px) {
     height: 100%;
   }
-  @media (max-height: 599px) {
+  @media screen and (max-height: 599px) {
     padding: 100px 0;
   }
   h2{
