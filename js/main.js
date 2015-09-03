@@ -55,11 +55,11 @@ var HomeContent = React.createClass({
           </p>
           <div className="full-name">
             <Borders />
-            <h2 className="text-to-animate">
+            <h1 className="text-to-animate">
               {letters.map((elem) => {
                 return <span className={'letter-' + (elem.id + 1)} key={elem.id}>{elem.letter}</span>;
               })}
-            </h2>
+            </h1>
           </div>
           <p id="desc">
             <span className="first">Full Stak Developer. </span>
@@ -142,7 +142,7 @@ var AboutText = React.createClass({
   render: function(){
     return(
       <div className="about-text">
-        <h1>Who Am I?</h1>
+        <h2>Who Am I?</h2>
         <p>I'm a 23 years old freelance Full Stack Developer based in Favara, Italy.</p>
         <p>Currently I'm working as author of premium WordPress themes on ThemeForest, with the username "<a href="http://themeforest.net/user/CodePark" target="_blank">CodePark</a>".</p>
         <p>I'm primarily focused on JavaScript, both front-end and back-end (Node.js). I like to develop web and mobile applications using modern frameworks, such as React (+ React Native), Express, Meteor and Angular.</p>
