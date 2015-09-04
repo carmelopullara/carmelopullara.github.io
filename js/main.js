@@ -1,7 +1,7 @@
 var App = React.createClass({
   render: function(){
     return(
-      <div id="wrapper">
+      <div id="wrapper" itemScope itemType="http://schema.org/Person">
         <HomeSection />
         <AboutSection />
       </div>
@@ -55,14 +55,14 @@ var HomeContent = React.createClass({
           </p>
           <div className="full-name">
             <Borders />
-            <h1 className="text-to-animate">
+            <h1 itemProp="name" className="text-to-animate">
               {letters.map((elem) => {
                 return <span className={'letter-' + (elem.id + 1)} key={elem.id}>{elem.letter}</span>;
               })}
             </h1>
           </div>
           <p id="desc">
-            <span className="first">Full Stak Developer. </span>
+            <span itemProp="jobTitle" className="first">Full Stak Developer. </span>
             <span className="second">JavaScript Addicted.</span>
           </p>
           <SocialMenu links={socials} />
@@ -89,7 +89,7 @@ var SocialItem = React.createClass({
   render: function(){
     return(
       <li id={'social-link-' + (this.props.reactKey + 1)} className={this.props.data.name}>
-        <a href={this.props.data.url} target="_blank">
+        <a itemProp="url" href={this.props.data.url} target="_blank">
           <i className={'icon-' + this.props.data.name}></i>
         </a>
       </li>
@@ -143,13 +143,13 @@ var AboutText = React.createClass({
     return(
       <div className="about-text">
         <h2>Who Am I?</h2>
-        <p>I'm a 23 years old freelance Full Stack Developer based in Favara, Italy.</p>
-        <p>Currently I'm working as author of premium WordPress themes on ThemeForest, with the username "<a href="http://themeforest.net/user/CodePark" target="_blank">CodePark</a>".</p>
+        <p>I'm a 23 years old freelance Full Stack Developer based in <span itemProp="address" itemScope itemType="http://schema.org/PostalAddress"><span itemProp="addressLocality">Favara</span>, <span itemProp="addressCountry">Italy</span></span>.</p>
+        <p>Currently I'm working as author of premium WordPress themes on ThemeForest, with the username "<a href="http://themeforest.net/user/CodePark" target="_blank">CodePark</a>.</p>
         <p>I'm primarily focused on JavaScript, both front-end and back-end (Node.js). I like to develop web and mobile applications using modern frameworks, such as React (+ React Native), Express, Meteor and Angular.</p>
         <p>I am passionate about technology, startups, cinema, music and science.</p>
         <ul className="nav nav-pills">
           <li><a href="mailto:carmelo@pullara.me" targer="_blank" className="btn">Email me</a></li>
-          <li><a href="http://themeforest.net/user/CodePark" targer="_blank" className="btn">View my works</a></li>
+          <li><a itemProp="email" href="http://themeforest.net/user/CodePark" targer="_blank" className="btn">View my works</a></li>
         </ul>
       </div>
     );
