@@ -144,7 +144,7 @@ var AboutText = React.createClass({
       <div className="about-text">
         <h2>Who Am I?</h2>
         <p>I'm a 23 years old freelance Full Stack Developer based in <span itemProp="address" itemScope itemType="http://schema.org/PostalAddress"><span itemProp="addressLocality">Favara</span>, <span itemProp="addressCountry">Italy</span></span>.</p>
-        <p>Currently I'm working as author of premium WordPress themes on ThemeForest, with the username "<a href="http://themeforest.net/user/CodePark" target="_blank">CodePark</a>.</p>
+        <p>Currently I'm working as author of premium WordPress themes on ThemeForest, with the username <a href="http://themeforest.net/user/CodePark" target="_blank">"CodePark"</a>.</p>
         <p>I'm primarily focused on JavaScript, both front-end and back-end (Node.js). I like to develop web and mobile applications using modern frameworks, such as React (+ React Native), Express, Meteor and Angular.</p>
         <p>I am passionate about technology, startups, cinema, music and science.</p>
         <ul className="nav nav-pills">
