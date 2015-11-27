@@ -149,7 +149,7 @@ var AboutText = React.createClass({
         <p>I am passionate about technology, startups, cinema, music and science.</p>
         <ul className="nav nav-pills">
           <li><a href="mailto:carmelo@pullara.me" targer="_blank" className="btn">Email me</a></li>
-          <li><a itemProp="email" href="http://themeforest.net/user/CodePark" targer="_blank" className="btn">View my works</a></li>
+          <li><a itemProp="email" href="http://themeforest.net/user/CodePark/portfolio" target="_blank" className="btn">View my works</a></li>
         </ul>
       </div>
     );
