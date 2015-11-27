@@ -62,7 +62,7 @@ var HomeContent = React.createClass({
             </h1>
           </div>
           <p id="desc">
-            <span itemProp="jobTitle" className="first">Full Stak Developer. </span>
+            <span itemProp="jobTitle" className="first">Full Stack Developer. </span>
             <span className="second">JavaScript Addicted.</span>
           </p>
           <SocialMenu links={socials} />
