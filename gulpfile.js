@@ -1,38 +1,59 @@
-var gulp          = require('gulp');
-var less          = require('gulp-less');
-var watch         = require('gulp-watch');
-var autoprefixer  = require('gulp-autoprefixer');
-var babel         = require('gulp-babel');
-var concat        = require('gulp-concat');
-var uglify        = require('gulp-uglify');
+'use strict';
+const gulp = require('gulp');
+const gutil = require('gulp-util');
+const sass = require('gulp-sass');
+const autoprefixer = require('gulp-autoprefixer');
+const source = require('vinyl-source-stream');
+const browserSync = require('browser-sync');
+const browserify = require('browserify');
+const babelify = require('babelify');
+const reload = browserSync.reload;
+ 
 
-gulp.task('styles', () => {
-  return gulp.src('./css/.less')
-    .pipe(less())
+gulp.task('sass', function () {
+  gulp.src('./src/sass/style.scss')
+    .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
     .pipe(autoprefixer({
-      browsers: ['> 5%'],
+      browsers: [
+        '> 5%',
+        'last 2 versions',
+        'Firefox >= 20'
+      ],
       cascade: false
     }))
-    .pipe(gulp.dest('./css/'));
+    .pipe(gulp.dest('./build/css'))
+    .pipe(reload({stream: true}));
 });
 
-gulp.task('babel',  () => {
-  return gulp.src('js/main.js')
-    .pipe(babel())
-    .pipe(uglify())
-    .pipe(gulp.dest('js/build'));
+gulp.task('build', () => {
+  
+  return browserify({
+    entries: './src/js/index.js',
+    extensions: ['.jsx', '.js'],
+    debug: false
+  })
+  .transform('babelify', {presets: ["es2015", "react"]})
+  .bundle()
+  .on('error', (e) => {
+    gutil.log(e)
+  })
+  .pipe(source('bundle.js'))
+  .pipe(gulp.dest('./build/js'));
+
 });
 
-gulp.task('concat-css', () => {
-  return gulp.src(['css/bootstrap.css', 'css/fontello.css', 'css/style.css'])
-    .pipe(concat('all.min.css'))
-    .pipe(gulp.dest('css/'));
-});
+gulp.task('default', ['sass', 'build'], () => {
+  
+  browserSync({
+    server: './',
+    port: 8000,
+    open: false,
+    notify: false,
+    reloadDelay: 1000
+  });
 
-gulp.task('watch', () => {
-  gulp.watch('css/*.less', ['styles']);
-  gulp.watch('js/main.js', ['babel']);
-  gulp.watch('css/*.css', ['concat-css']);
-});
+  gulp.watch('./src/sass/*.scss',   ['sass']);
+  gulp.watch(['./src/js/**/*.js', './src/js/**/*.jsx'], ['build']);
+  gulp.watch('./build/**/*.js').on('change', browserSync.reload);
 
-gulp.task('default', ['watch']);
+});
