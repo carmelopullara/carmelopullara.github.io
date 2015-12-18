@@ -2,6 +2,8 @@
 const gulp = require('gulp');
 const gutil = require('gulp-util');
 const sass = require('gulp-sass');
+const uglify = require('gulp-uglify');
+const buffer = require('vinyl-buffer');
 const autoprefixer = require('gulp-autoprefixer');
 const source = require('vinyl-source-stream');
 const browserSync = require('browser-sync');
@@ -38,6 +40,8 @@ gulp.task('build', () => {
     gutil.log(e)
   })
   .pipe(source('bundle.js'))
+  .pipe(buffer())
+  .pipe(uglify())
   .pipe(gulp.dest('./build/js'));
 
 });
