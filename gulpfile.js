@@ -1,6 +1,7 @@
 'use strict';
 const gulp = require('gulp');
 const gutil = require('gulp-util');
+const jade = require('gulp-jade');
 const sass = require('gulp-sass');
 const uglify = require('gulp-uglify');
 const buffer = require('vinyl-buffer');
@@ -44,6 +45,16 @@ gulp.task('build', () => {
   .pipe(uglify())
   .pipe(gulp.dest('./build/js'));
 
+});
+
+gulp.task('jade', () => {
+  var YOUR_LOCALS = {};
+ 
+  gulp.src('./*.jade')
+    .pipe(jade({
+      locals: YOUR_LOCALS
+    }))
+    .pipe(gulp.dest('./'))
 });
 
 gulp.task('default', ['sass', 'build'], () => {
