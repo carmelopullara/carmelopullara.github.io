@@ -29,7 +29,7 @@ $bg: darken(#181e20, 4%);
 body{
   font-family: 'BrandonGrotesque';
   font-weight: 400;
-  color: lighten($bg, 5%);
+  color: lighten($bg, 15%);
   font-size: 18px;
   background-color: #eee;
 }
@@ -313,7 +313,7 @@ header{
   letter-spacing: 12px;
   &:after{
     content: "";
-    border-bottom: 2px solid #666;
+    border-bottom: 2px solid lighten($bg, 10%);
     width: 60px;
     display: block;
     margin: 20px 0;
