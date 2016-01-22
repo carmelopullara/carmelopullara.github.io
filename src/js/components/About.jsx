@@ -25,7 +25,7 @@ export default class About extends React.Component {
               <li>
                 <h5 className="about-section__list-title">Current:</h5>
                 <div className="about-section__list-content">
-                  <p>I'm working as author of premium WordPress themes and HTML templates on ThemeForest, with the username <a href="http://themeforest.net/user/CodePark" target="_blank">CodePark</a>.</p>
+                  <p>I'm working as author of premium WordPress themes and HTML templates on ThemeForest, with the username <a href="http://themeforest.net/user/HodyLab" target="_blank">HodyLab</a>.</p>
                 </div>
               </li>
               <li>
@@ -36,7 +36,7 @@ export default class About extends React.Component {
               </li>              
             </ul>
             <p>I'm always open for collaboration on cool projects. If you have something awesome in mind, you can <a itemProp="email" href="mailto:carmelo@pullara.me" target="_blank">drop me en email</a>, or get in touch in one of the socials above.</p>
-            <p><a href="http://themeforest.net/user/CodePark/portfolio" className="view-works__link" target="_blank">View my works.</a></p>
+            <p><a href="http://themeforest.net/user/HodyLab/portfolio" className="view-works__link" target="_blank">View my works.</a></p>
           </div>
         </div>
       </section>
