@@ -25,7 +25,7 @@ export default class About extends React.Component {
               <li>
                 <h5 className="about-section__list-title">Current:</h5>
                 <div className="about-section__list-content">
-                  <p>I'm working as author of premium WordPress themes and HTML templates on ThemeForest, with the username <a href="http://themeforest.net/user/HodyLab" target="_blank">HodyLab</a>.</p>
+                  <p>I'm a ThemeForest <a href="http://elite.envato.com/" target="_blank">elite</a> author. I develop premium WordPress themes with the username <a href="http://themeforest.net/user/HodyLab" target="_blank">HodyLab</a>.</p>
                 </div>
               </li>
               <li>
