@@ -35,7 +35,7 @@ export default class About extends React.Component {
                 </div>
               </li>              
             </ul>
-            <p>I'm always open for collaboration on cool projects. If you have something awesome in mind, you can <a itemProp="email" href="mailto:carmelo@pullara.me" target="_blank">drop me en email</a>, or get in touch in one of the socials above.</p>
+            <p>I am not looking for a new position, but if you have something awesome in mind, you can <a itemProp="email" href="mailto:carmelo@pullara.me" target="_blank">drop me en email</a>, or get in touch in one of the socials above.</p>
             <p><a href="http://themeforest.net/user/HodyLab/portfolio" className="view-works__link" target="_blank">View my works.</a></p>
           </div>
         </div>
