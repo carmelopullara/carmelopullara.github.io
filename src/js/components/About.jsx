@@ -19,7 +19,7 @@ export default class About extends React.Component {
         <div className="about-section__side-2">
           <div className="about-section__block">
             <h2 className="about-section__title">About Me.</h2>
-            <p>I'm a 23 years old freelance Front-End Developer based in <span itemProp="address" itemScope itemType="http://schema.org/PostalAddress"><span itemProp="addressLocality">Favara</span>, <span itemProp="addressCountry">Italy</span></span>.</p>
+            <p>I'm a 24 years old freelance Front-End Developer based in <span itemProp="address" itemScope itemType="http://schema.org/PostalAddress"><span itemProp="addressLocality">Favara</span>, <span itemProp="addressCountry">Italy</span></span>.</p>
             <p>I'm primarily focused on JavaScript and Node.js. I like to develop web and mobile applications using modern frameworks, such as React, React Native, Express, Meteor and Angular.</p>
             <ul className="about-section__list">
               <li>
