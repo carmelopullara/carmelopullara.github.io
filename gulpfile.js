@@ -1,7 +1,7 @@
 'use strict';
 const gulp = require('gulp');
 const gutil = require('gulp-util');
-const jade = require('gulp-jade');
+const pug = require('gulp-pug');
 const sass = require('gulp-sass');
 const uglify = require('gulp-uglify');
 const buffer = require('vinyl-buffer');
@@ -11,7 +11,7 @@ const browserSync = require('browser-sync');
 const browserify = require('browserify');
 const babelify = require('babelify');
 const reload = browserSync.reload;
- 
+
 
 gulp.task('sass', function () {
   gulp.src('./src/sass/style.scss')
@@ -29,7 +29,7 @@ gulp.task('sass', function () {
 });
 
 gulp.task('build', () => {
-  
+
   return browserify({
     entries: './src/js/index.js',
     extensions: ['.jsx', '.js'],
@@ -47,18 +47,19 @@ gulp.task('build', () => {
 
 });
 
-gulp.task('jade', () => {
+gulp.task('pug', () => {
   var YOUR_LOCALS = {};
- 
-  gulp.src('./*.jade')
-    .pipe(jade({
+
+  gulp.src('./*.pug')
+    .pipe(pug({
       locals: YOUR_LOCALS
     }))
     .pipe(gulp.dest('./'))
+    .pipe(reload({stream: true}));
 });
 
-gulp.task('default', ['sass', 'build'], () => {
-  
+gulp.task('default', ['pug', 'sass'], () => {
+
   browserSync({
     server: './',
     port: 8000,
@@ -67,7 +68,8 @@ gulp.task('default', ['sass', 'build'], () => {
     reloadDelay: 1000
   });
 
-  gulp.watch('./src/sass/*.scss',   ['sass']);
+  gulp.watch('./src/sass/*.scss', ['sass']);
+  gulp.watch('./*.pug', ['pug']);
   gulp.watch(['./src/js/**/*.js', './src/js/**/*.jsx'], ['build']);
   gulp.watch('./build/**/*.js').on('change', browserSync.reload);
 

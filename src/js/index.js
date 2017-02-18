@@ -1,5 +1,8 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './components/App';
+import './particleground.js';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+particleground(document.getElementById('main-canvas'), {
+  dotColor: '#989072',
+  lineColor: 'transparent',
+  particleRadius: 2.5,
+  density: 8000
+});

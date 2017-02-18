@@ -1,4 +1,4 @@
-@import '../../node_modules/normalize.css/normalize.scss';
+@import './normalize.scss';
 @import './fontello.scss';
 
 $primary: #989072;
@@ -32,6 +32,7 @@ body{
   color: lighten($bg, 15%);
   font-size: 18px;
   background-color: #eee;
+  line-height: 1.45;
 }
 
 ul{
@@ -50,8 +51,7 @@ a{
   transition: all .3s ease;
   text-decoration: none;
   &:hover{
-    text-decoration: underline;
-    color: darken($primary, 10%);
+    color: darken($primary, 15%);
   }
 }
 
@@ -206,6 +206,16 @@ header{
   span{
     opacity: 0;
     animation: animLetters .1s both;
+    @media(min-width: 992px){
+      display: inline-block;
+      &.letter-8{
+        margin-left: 12px;
+        margin-right: 12px;
+      }
+      &:last-child{
+        letter-spacing: 0;
+      }
+    }
   }
 }
 
@@ -314,7 +324,7 @@ header{
   &:after{
     content: "";
     border-bottom: 2px solid lighten($bg, 10%);
-    width: 60px;
+    width: 40px;
     display: block;
     margin: 20px 0;
   }
@@ -352,6 +362,7 @@ header{
   font-size: 12px;
   margin-top: 15px;
   transition: all .3s ease;
+  letter-spacing: 1px;
 }
 
 @keyframes animSocial{
@@ -383,7 +394,7 @@ header{
 @keyframes animLetters{
   0% {
     opacity: 0;
-    transform: scale(1.6);
+    transform: scale(1.2);
   }
   100% {
     opacity: 1;
